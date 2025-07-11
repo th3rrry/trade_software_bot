@@ -927,3 +927,55 @@ select:focus,
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+
+/* Mobile header layout */
+@media screen and (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+    justify-content: space-between;
+  }
+
+  /* Скрываем текст логотипа, оставляем только иконку */
+  .logo-header #logo-text {
+    display: none;
+  }
+
+  /* Немного уменьшаем отступы вокруг логотипа */
+  .logo-header {
+    margin-bottom: 8px;
+  }
+
+  /* Переключатель темы и язык ставим на новую строку, центрируем */
+  .theme-selector,
+  .language-dropdown {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    margin: 8px 0;
+  }
+
+  /* Уменьшаем размеры кнопок переключения темы */
+  .theme-selector .theme-btn {
+    width: 28px;
+    height: 28px;
+    margin: 0 2px;
+  }
+  .theme-selector .theme-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Подтягиваем выпадашку языка */
+  .language-dropdown .lang-selected {
+    width: auto;
+    padding: 6px 8px;
+  }
+
+  /* Основная шапка (логотип) остаётся вверху */
+  .logo-header {
+    order: 1;
+  }
+}
