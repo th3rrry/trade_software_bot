@@ -932,50 +932,57 @@ select:focus,
 /* Mobile header layout */
 @media screen and (max-width: 768px) {
   .header {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;            /* не переносить на новую строку */
+    align-items: center;
     justify-content: space-between;
+    padding: 10px;
+    height: auto;
   }
 
-  /* Скрываем текст логотипа, оставляем только иконку */
+  /* Иконка логотипа слева, текст скрываем */
+  .logo-header {
+    display: flex;
+    align-items: center;
+    order: 1;
+    margin: 0;
+  }
   .logo-header #logo-text {
     display: none;
   }
 
-  /* Немного уменьшаем отступы вокруг логотипа */
-  .logo-header {
-    margin-bottom: 8px;
-  }
-
-  /* Переключатель темы и язык ставим на новую строку, центрируем */
-  .theme-selector,
-  .language-dropdown {
+  /* Оборачиваем селект языка и тему в один контейнер */
+  /* (если ещё нет — оберните их, как я показывал ранее, в <div class="header-controls">) */
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     order: 2;
-    width: 100%;
-    justify-content: center;
-    margin: 8px 0;
+    margin: 0;
+    margin-left: auto;            /* отодвигаем вправо */
   }
 
-  /* Уменьшаем размеры кнопок переключения темы */
+  /* Подправляем переключатель тем */
+  .theme-selector {
+    margin: 0;
+    padding: 4px;
+  }
   .theme-selector .theme-btn {
     width: 28px;
     height: 28px;
-    margin: 0 2px;
+    margin: 0 4px;
   }
   .theme-selector .theme-btn svg {
     width: 16px;
     height: 16px;
   }
 
-  /* Подтягиваем выпадашку языка */
-  .language-dropdown .lang-selected {
-    width: auto;
-    padding: 6px 8px;
+  /* Языковой селектор */
+  .language-dropdown {
+    margin: 0;
   }
-
-  /* Основная шапка (логотип) остаётся вверху */
-  .logo-header {
-    order: 1;
+  .language-dropdown .lang-selected {
+    padding: 6px 8px;
+    font-size: 12px;
   }
 }
